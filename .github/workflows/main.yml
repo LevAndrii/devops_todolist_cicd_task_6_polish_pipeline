@@ -83,14 +83,14 @@ jobs:
         if: github.ref_name == 'main'
         uses: actions/upload-artifact@v4
         with:
-          name: helm-artifacts
+          name: helm-artifacts-${{ matrix.PythonVersion }}-${{ matrix.OsType }}
           path: ${{ github.workspace }}/helm-charts
 
       - name: Upload kind cluster artifact
         if: github.ref_name == 'main'
         uses: actions/upload-artifact@v4
         with:
-          name: kind-cluster
+          name: kind-cluster-${{ matrix.PythonVersion }}-${{ matrix.OsType }}
           path: ${{ github.workspace }}/cluster.yml
 
   docker-ci:
