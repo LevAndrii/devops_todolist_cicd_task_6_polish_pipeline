@@ -80,10 +80,6 @@ jobs:
 
         continue-on-error: true
 
-      - name: Wait before logs
-        if: always()
-        run: sleep 10
-
       - name: Describe MySQL Pod
         if: always()
         run: kubectl describe pod -n mysql $(kubectl get pods -n mysql -o jsonpath="{.items[0].metadata.name}")
